@@ -1,0 +1,24 @@
+.loginForm{
+    background-color: #eee;
+    height: 100vh;
+}
+.formLogin{
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: #fff;
+    margin: 100px auto;
+    box-shadow: -1px 0px 11px 12px #dadada;
+}
+.formLogin input{ 
+    width: 100%;
+    padding: 0 15px;
+    line-height: 40px;
+
+}
+.formLogin input[type="submit"]{
+    background: #000;
+    color: #fff;
+    line-height: 40px;
+}
