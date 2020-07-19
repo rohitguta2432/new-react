@@ -2,11 +2,37 @@ import React from 'react'
 
 function Header() {
     return (
-        <nav class="navbar navbar-dark bg-primary">
-            <div className="row col-12 d-flex justify-content-center text-white">
-                <span className="h3">Register</span>
-            </div>
-        </nav>
+        <>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <a className="navbar-brand" href="#">Navbar</a>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span claclassNames="navbar-toggler-icon"></span>
+  </button>
+  <div className="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul className="navbar-nav">
+      <li className="nav-item active">
+        <a claclassName="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Features</a>
+      </li>
+      <li className="nav-item">
+        <a claclassName="nav-link" href="#">Pricing</a>
+      </li>
+      <li className="nav-item dropdown">
+        <a clclassNameas="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a className="dropdown-item" href="#">Action</a>
+          <a clclassNameas="dropdown-item" href="#">Another action</a>
+          <a className="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+        </>
     )
 }
 

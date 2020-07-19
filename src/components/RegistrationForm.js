@@ -2,15 +2,15 @@ import React from 'react'
 
 function RegistrationForm(props) {
     const [state, setState] = useState({
-        email:"",
-        password:""
+        email: "",
+        password: ""
     });
 
     const handleChange = (e) => {
-        const {id , value} = e.target   
+        const { id, value } = e.target
         setState(prevState => ({
             ...prevState,
-            [id] : value
+            [id]: value
         }))
     }
     return (
@@ -18,11 +18,11 @@ function RegistrationForm(props) {
             <form>
                 <div className="form-group text-left">
                     <label htmlFor="exampleInputEmail1">Email Address</label>
-                    <input type="email" className="form-control" id="email" 
-                    aria-describedby="emailHelp"
-                     placeholder="Enter email"
-                      value={state.email}
-                      onChange={handleChange}/>
+                    <input type="email" className="form-control" id="email"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter email"
+                        value={state.email}
+                        onChange={handleChange} />
                     <small id="emailHelp" className="form-text text-muted"> we ll never share your email with anyone else</small>
                 </div>
                 <div className="form-group text-left">

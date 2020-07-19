@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
+import {useHistory,Route,Redirect} from 'react-router-dom'
 import './Login.css'
 import Axios from 'axios';
+import Home from '../Home/Home';
 function Login() {
     const [user, setUser] = useState({
         mobile: '',
         password: ''
     })
-
+    
     const inputEvent = (e) => {
         const { name, value } = e.target;
         setUser((preValue) => {
@@ -16,21 +18,24 @@ function Login() {
             }
         })
     }
+    const history = useHistory();
+    //console.log(history)
     const onSubmit = (event) => {
+        
         event.preventDefault();
-        console.log(user)
-        const data = Axios.post('http://localhost:8081/api/v1/field-operations/auth/login', { 'mobile': '+91' + user.mobile, 'password': user.password })
+        //console.log(user)
+        const data = Axios.post('http://localhost:1234/api/v1/auth/login', { 'mobile': '+91' + user.mobile, 'password': user.password })
             .then(response => {
-                if(response.status == 200){
+                if(response.status === 200){
                     console.log('success')
+                    history.push('/Home');
                 }
             })
             .catch(error => {
                 console.log(error)
             })
     }
-
-    return (
+     return (
 
         <section className="loginForm py-5 position-relative">
             <div className="container">
