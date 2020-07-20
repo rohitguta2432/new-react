@@ -1,39 +1,47 @@
-import React from 'react'
-
+import React from 'react';
+import {Link} from 'react-router-dom';
+import '../Headers/Header.scss'
 function Header() {
     return (
         <>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#">Navbar</a>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span claclassNames="navbar-toggler-icon"></span>
-  </button>
-  <div className="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul className="navbar-nav">
-      <li className="nav-item active">
-        <a claclassName="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Features</a>
-      </li>
-      <li className="nav-item">
-        <a claclassName="nav-link" href="#">Pricing</a>
-      </li>
-      <li className="nav-item dropdown">
-        <a clclassNameas="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a className="dropdown-item" href="#">Action</a>
-          <a clclassNameas="dropdown-item" href="#">Another action</a>
-          <a className="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</nav>
+            <header>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <nav className="navbar fixed-top navbar-dark d-table w-100">
+                                <ul className="mainnav">
+                                    <li><Link to=""><i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart</Link></li>
+                                    <li className="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><Link to=""><i className="fas fa-user"></i> My Account</Link>
+                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <Link className="dropdown-item" to="#"><i className="fas fa-user"></i> My Profile</Link>
+                                        <Link className="dropdown-item" to="#"><i className="fa fa-bell" aria-hidden="true"></i> Notification</Link>
+                                        <Link className="dropdown-item" to="#"><i className="fa fa-lock" aria-hidden="true"></i> Logout</Link>
+                                    </div>
+                                    </li>
+                                </ul>
+                                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+                                    <span className="navbar-toggler-icon"><i className="fa fa-bars" aria-hidden="true"></i></span>
+                                </button>
+                                <div className="navbar-collapse collapse" id="collapsingNavbar">
+                                    <ul className="navbar-nav">
+                                        <li className="nav-item active">
+                                            <Link className="nav-link" to="/">Home</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                        <Link className="nav-link" to="/">Codeply</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                        <Link className="nav-link" to="#myAlert" data-toggle="collapse">Wow</Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>
         </>
     )
 }
 
-export default Header
+export default Header;

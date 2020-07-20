@@ -1,0 +1,111 @@
+header{
+    height: 50px;
+    nav {
+        background: #000;
+        padding: 0 15px!important;
+        .navbar-collapse {
+            display: block!important;
+            position: fixed;
+            top: 50px;
+            left: 0;
+            width: 270px;
+            background: #242222;
+            height: 100%;
+            -webkit-transform: translateX(-270px);
+            -moz-transform: translateX(-270px);
+            transform: translateX(-270px);
+            -webkit-transition: 0.4s;
+            -moz-transition: 0.4s;
+            transition: 0.4s;
+            li {
+                padding: 6px 15px;
+                border-bottom: 1px solid #5c5757;
+                a {
+                    color: #fff!important;
+                }
+            }
+        }
+        .navbar-collapse.show {
+            -webkit-transform: translateX(0px);
+            -moz-transform: translateX(0px);
+            transform: translateX(0px);
+            -webkit-transition: 0.4s;
+            -moz-transition: 0.4s;
+            transition: 0.4s;
+        }
+    }
+    .navbar-toggler {
+        position: absolute;
+        left: 15px;
+        top: 8px;
+        padding: 2px 8px;
+        background: #e24b4b;
+        border: 0;
+        outline: 0!important;
+        .navbar-toggler-icon {
+            background-image: none;
+            color: #fff;
+            padding: 3px 4px;
+            i {
+                color:#fff;
+                font-size: 25px;
+            }
+        }
+    }
+    .mainnav {
+        margin:0;
+        padding:0;
+        list-style:none;
+        float: right;
+        text-align: right;
+        li {
+            position: relative;
+            float: left;
+            margin-left: 15px;
+            a {
+                color: #fff;
+                display: inline-block;
+                padding: 13px 15px;
+                text-decoration: none;
+                i {
+                    color: #e24b4b;
+                    margin-right: 5px;
+                }
+            }
+            .dropdown-menu {
+                right: 0;
+                padding: 0 0;
+                background: #df5c5c;
+                top: 48px;
+                border-radius: 0;
+                min-width: 210px;
+                border: 0;
+                left: initial;
+                a {
+                    width: 100%;
+                    white-space: initial;
+                    display: block;
+                    padding: 10px 15px;
+                    border-bottom: 1px solid #be3939;
+                    i {
+                        color: #fff;
+                    }
+                    &:hover {
+                        background: #be3939;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        .dropdown-toggle {
+            &:after {
+                color: #fff;
+                margin-left: -0.245em;
+                vertical-align: 0.155em;
+            }
+        }
+        .dropdown-toggle:hover>.dropdown-menu {
+            display: block;
+        }
+    }
+}

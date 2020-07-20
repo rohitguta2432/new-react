@@ -1,0 +1,42 @@
+.productsItems {
+    .card {
+        .featuredImg {
+            position: relative;
+            height: 280px;
+            width: 100%;
+            border-bottom: 1px solid #edeaea;
+            img {
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .card-title {
+            color: #e24b4b;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        p {
+            font-size: 14px;
+            color: #000;
+        }
+        .card-footer{
+            h6 {
+                display: inline-block;
+                font-size: 20px;
+                font-weight: 700;
+                color: #000;
+                margin: 7px 0;
+            }
+            .cartbtn {
+                background: #e24b4b;
+                padding: 0 15px;
+                float: right;
+                color: #fff;
+                font-weight: 600;
+                line-height: 39px;
+                text-decoration: none;
+            }
+        }
+    }
+}
