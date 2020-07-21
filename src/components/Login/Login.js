@@ -20,6 +20,7 @@ function Login() {
     }
     const history = useHistory();
     //console.log(history)
+    const [errorMessage,setErrorMessage] = useState();
     const onSubmit = (event) => {
         
         event.preventDefault();
@@ -27,12 +28,12 @@ function Login() {
         const data = Axios.post('http://localhost:1234/api/v1/auth/login', { 'mobile': '+91' + user.mobile, 'password': user.password })
             .then(response => {
                 if(response.status === 200){
-                    console.log('success')
                     history.push('/Home');
                 }
             })
             .catch(error => {
-                console.log(error)
+                console.log('error')
+                setErrorMessage('mobileNo or password is incorrect')
             })
     }
      return (
@@ -42,6 +43,7 @@ function Login() {
                 <div className="row">
                     <div className="col-md-12">
                         <form className="formLogin" onSubmit={onSubmit}>
+                            <p className="text-danger">{errorMessage}</p>
                             <div className="form-group">
                                 <label className="w-100">Mobile Number</label>
                                 <input className="form-control" type="text" placeholder="Enter Number" name="mobile" onChange={inputEvent} value={user.mobile} />
@@ -53,6 +55,7 @@ function Login() {
                             <div className="form-group mb-0">
                                 <input className="form-control" type="submit" value="Submit" />
                             </div>
+
                         </form>
 
                     </div>

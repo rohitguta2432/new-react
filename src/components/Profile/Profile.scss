@@ -1,0 +1,17 @@
+.profileImage{
+    margin: 0 auto 30px;
+    height: 80px;
+    width: 80px;
+    overflow: hidden;
+    img{
+        object-fit: cover;
+        height: 100%;
+        width:100%
+    }
+}
+
+
+.profileform {
+    max-width: 600px;
+    overflow: hidden;
+}

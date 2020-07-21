@@ -11,11 +11,10 @@ function Header() {
                             <nav className="navbar fixed-top navbar-dark d-table w-100">
                                 <ul className="mainnav">
                                     <li><Link to=""><i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart</Link></li>
-                                    <li className="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><Link to=""><i className="fas fa-user"></i> My Account</Link>
-                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <Link className="dropdown-item" to="#"><i className="fas fa-user"></i> My Profile</Link>
-                                        <Link className="dropdown-item" to="#"><i className="fa fa-bell" aria-hidden="true"></i> Notification</Link>
-                                        <Link className="dropdown-item" to="#"><i className="fa fa-lock" aria-hidden="true"></i> Logout</Link>
+                                    <li className="dropdown-toggle"><Link to=""><i className="fas fa-user"></i> My Account</Link>
+                                    <div className="dropdown-menu">
+                                        <Link className="dropdown-item" to="/Profile"><i className="fas fa-user"></i> My Profile</Link>
+                                        <Link className="dropdown-item" to="/"><i className="fa fa-lock" aria-hidden="true"></i> Logout</Link>
                                     </div>
                                     </li>
                                 </ul>
@@ -25,13 +24,7 @@ function Header() {
                                 <div className="navbar-collapse collapse" id="collapsingNavbar">
                                     <ul className="navbar-nav">
                                         <li className="nav-item active">
-                                            <Link className="nav-link" to="/">Home</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                        <Link className="nav-link" to="/">Codeply</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                        <Link className="nav-link" to="#myAlert" data-toggle="collapse">Wow</Link>
+                                            <Link className="nav-link" to="/Home">Home</Link>
                                         </li>
                                     </ul>
                                 </div>
