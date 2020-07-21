@@ -14,9 +14,9 @@ function App() {
   
   const [state, setState] = useState(false);
   
-  if (location.pathname != '/') {
+  /* if (location.pathname != '/') {
     setState(true)
-  }
+  } */
   return (
     <>
       {state ? (< Header />) : (

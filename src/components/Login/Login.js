@@ -25,7 +25,7 @@ function Login() {
         
         event.preventDefault();
         //console.log(user)
-        const data = Axios.post('http://localhost:1234/api/v1/auth/login', { 'mobile': '+91' + user.mobile, 'password': user.password })
+        const data = Axios.post('http://13.234.77.33:1234/api/v1/auth/login', { 'mobile': '+91' + user.mobile, 'password': user.password })
             .then(response => {
                 if(response.status === 200){
                     history.push('/Home');
