@@ -8,23 +8,15 @@ import { useLocation } from 'react-router-dom'
 
 function App() {
 
-  var sra = false;
+  
   const location = useLocation()
 
-  
-  const [state, setState] = useState(false);
-  
-  /* if (location.pathname != '/') {
-    setState(true)
-  } */
   return (
     <>
-      {state ? (< Header />) : (
-        <>
-          <Header />
+    {location.pathname != '/' ? (<Header/>) : null}
           <CommonRouter>
             <Login />
-          </CommonRouter></>)}
+          </CommonRouter>
     </>
   );
 }

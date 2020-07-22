@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {useHistory,Route,Redirect} from 'react-router-dom'
 import './Login.css'
 import Axios from 'axios';
-import Home from '../Home/Home';
+
 function Login() {
     const [user, setUser] = useState({
         mobile: '',
@@ -19,7 +19,7 @@ function Login() {
         })
     }
     const history = useHistory();
-    //console.log(history)
+    
     const [errorMessage,setErrorMessage] = useState();
     const onSubmit = (event) => {
         
@@ -28,12 +28,15 @@ function Login() {
         const data = Axios.post('http://13.234.77.33:1234/api/v1/auth/login', { 'mobile': '+91' + user.mobile, 'password': user.password })
             .then(response => {
                 if(response.status === 200){
+                    console.log(response.data.token)
+                    sessionStorage.setItem('userId',response.data.id)
+                    sessionStorage.setItem('token',response.data.token)
                     history.push('/Home');
                 }
             })
             .catch(error => {
                 console.log('error')
-                setErrorMessage('mobileNo or password is incorrect')
+                setErrorMessage('mobile number or password is incorrect')
             })
     }
      return (

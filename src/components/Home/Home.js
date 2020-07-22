@@ -5,7 +5,6 @@ import AllProduct from '../Products/AllProducts'
 function Home() {
     return (
         <>
-        <Header/>
         <AllProduct/>
         </>
     )

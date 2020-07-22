@@ -4,6 +4,7 @@ import Login from '../Login/Login'
 import Home from '../Home/Home'
 import Profile from '../Profile/Profile'
 import Header from '../Headers/Header'
+import Logout from '../Login/Logout'
 function CommonRouter(props) {
     return (
         <>
@@ -11,6 +12,7 @@ function CommonRouter(props) {
                 <Route exact path="/" component={Login} />
                 <Route path="/home" component={Home} />
                 <Route path="/profile" component={Profile} />
+                <Route path="/logout" component={Logout} />
             </Switch>
         </>
     )
