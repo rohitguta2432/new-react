@@ -24,13 +24,14 @@ function Login() {
     const onSubmit = (event) => {
         
         event.preventDefault();
-        //console.log(user)
         const data = Axios.post('http://13.234.77.33:1234/api/v1/auth/login', { 'mobile': '+91' + user.mobile, 'password': user.password })
             .then(response => {
                 if(response.status === 200){
-                    console.log(response.data.token)
+                    console.log(response)
+                    sessionStorage.setItem('logindetails', JSON.stringify(response.config.data));
                     sessionStorage.setItem('userId',response.data.id)
                     sessionStorage.setItem('token',response.data.token)
+                    sessionStorage.setItem('userName',response.data.fullName)
                     history.push('/Home');
                 }
             })

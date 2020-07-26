@@ -3,16 +3,20 @@ import { Route, Switch } from 'react-router-dom'
 import Login from '../Login/Login'
 import Home from '../Home/Home'
 import Profile from '../Profile/Profile'
-import Header from '../Headers/Header'
-import Logout from '../Login/Logout'
-function CommonRouter(props) {
+import Logout from '../Logout/Logout';
+import Protected from '../ProtectedRouter/ProtectedRouter'
+import AddProduct from '../AddProduct/AddProduct';
+import CategoryModal from '../Modal/CategoryModal'
+function CommonRouter() {
     return (
         <>
             <Switch>
                 <Route exact path="/" component={Login} />
-                <Route path="/home" component={Home} />
-                <Route path="/profile" component={Profile} />
-                <Route path="/logout" component={Logout} />
+                <Protected path="/home" component={Home} />
+                <Protected path="/profile" component={Profile} />
+                <Route path="/addproduct" component={AddProduct} />
+                <Route path="/Logout" component={Logout} />
+                
             </Switch>
         </>
     )
