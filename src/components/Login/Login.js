@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
-import {useHistory,Route,Redirect} from 'react-router-dom'
+import { useHistory, Route, Redirect } from 'react-router-dom'
 import './Login.css'
 import Axios from 'axios';
+import { ENV } from '../constants/Url'
 
 function Login() {
     const [user, setUser] = useState({
         mobile: '',
         password: ''
     })
-    
+
     const inputEvent = (e) => {
         const { name, value } = e.target;
         setUser((preValue) => {
@@ -19,19 +20,19 @@ function Login() {
         })
     }
     const history = useHistory();
-    
-    const [errorMessage,setErrorMessage] = useState();
+
+    const [errorMessage, setErrorMessage] = useState();
     const onSubmit = (event) => {
-        
+
         event.preventDefault();
-        const data = Axios.post('http://13.234.77.33:1234/api/v1/auth/login', { 'mobile': '+91' + user.mobile, 'password': user.password })
+        const data = Axios.post(ENV.URL + '/auth/login', { 'mobile': '+91' + user.mobile, 'password': user.password })
             .then(response => {
-                if(response.status === 200){
+                if (response.status === 200) {
                     console.log(response)
                     sessionStorage.setItem('logindetails', JSON.stringify(response.config.data));
-                    sessionStorage.setItem('userId',response.data.id)
-                    sessionStorage.setItem('token',response.data.token)
-                    sessionStorage.setItem('userName',response.data.fullName)
+                    sessionStorage.setItem('userId', response.data.id)
+                    sessionStorage.setItem('token', response.data.token)
+                    sessionStorage.setItem('userName', response.data.fullName)
                     history.push('/Home');
                 }
             })
@@ -40,7 +41,7 @@ function Login() {
                 setErrorMessage('mobile number or password is incorrect')
             })
     }
-     return (
+    return (
 
         <section className="loginForm py-5 position-relative">
             <div className="container">

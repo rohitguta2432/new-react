@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../Profile/Profile.scss'
 import Axios from 'axios'
+import { ENV } from '../constants/Url'
 
 function Profile() {
     const userId = sessionStorage.getItem('userId')
@@ -13,12 +14,12 @@ function Profile() {
         firstName: '',
         lastName: '',
         fullName: '',
-        id:''
+        id: ''
     })
 
 
     useEffect(() => {
-        Axios.get('http://localhost:1234/api/v1/user/' + userId, {
+        Axios.get(ENV.URL + '/user/' + userId, {
             headers: {
                 Authorization: `Bearer  ${token}`
             }
@@ -29,9 +30,9 @@ function Profile() {
                     firstName: res.data.firstName,
                     lastName: res.data.lastName,
                     fullName: res.data.FullName,
-                    id : userId
+                    id: userId
                 })
-                
+
             })
             .catch((error) => {
                 console.error(error)
@@ -39,26 +40,26 @@ function Profile() {
     }, [])
     const InputEvent = (event) => {
         console.log(event.target.value)
-        const {name,value} = event.target;
-        setProfile((preValue)=>{
-                return {
-                    ...preValue,
-                    [name]:value,
-                }
+        const { name, value } = event.target;
+        setProfile((preValue) => {
+            return {
+                ...preValue,
+                [name]: value,
+            }
         })
     }
-    const [message,setMessage] = useState()
-    const updateForm = (event) =>{
-            event.preventDefault()
-            Axios.post('http://localhost:1234/api/v1/user',profile,{
-                headers:{
-                    Authorization : `Bearer ${token}`
-                }
-            })
-            .then((response)=>{
-                    console.log(response)
-                    setMessage('Profile is updated Successful')
-            }).catch((error)=>{
+    const [message, setMessage] = useState()
+    const updateForm = (event) => {
+        event.preventDefault()
+        Axios.post(ENV.URL+'/user', profile, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+            .then((response) => {
+                console.log(response)
+                setMessage('Profile is updated Successful')
+            }).catch((error) => {
                 console.log(error)
             })
     }
@@ -70,7 +71,7 @@ function Profile() {
                     <div className="row">
                         <div className="col-md-12">
                             <form className="formLogin profileform" onSubmit={updateForm}>
-                      
+
                                 <span className="text-success">{message}</span>
                                 <div className="col-md-12 float-left">
                                     <div className="form-group text-center">

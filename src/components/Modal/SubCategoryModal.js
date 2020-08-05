@@ -4,9 +4,9 @@ import '../Modal/ModalStyle.scss';
 import Axios from 'axios';
 
 
-function CategoryModal(props) {
+function SubCategoryModal(props) {
   const token = sessionStorage.getItem('token')
-  const [category, setCategory] = useState({
+  const [subcategory, setsubCategory] = useState({
     name: '',
     description: ''
   });
@@ -14,9 +14,9 @@ function CategoryModal(props) {
   useEffect(() => {
   })
 
-  const inputHandler = (e,validators) => {
+  const inputHandler = (e) => {
     const { value, name } = e.target;
-    setCategory((preValue) => {
+    setsubCategory((preValue) => {
       return {
         ...preValue,
         [name]: value
@@ -26,25 +26,16 @@ function CategoryModal(props) {
   }
 
   const getCatValue = () => {
-
-    const categoryName = category.name;
-    const categoryDescription = category.description;
-
-    Axios.post('http://localhost:1234/api/v1/category', { 'name': category.name, 'description': category.description }, {
+    console.log(subcategory)
+    Axios.post('http://localhost:1234/api/v1/category', { 'name': '', 'description': '', 'subCategories': [{ 'name': subcategory.name, 'description': subcategory.description }], 'products': [{ 'name': '', 'description': '' }]}, {
       headers: {
         Authorization: `Bearer ${token}`
       }
     }).then((response) => {
+      console.log(response)
     }).catch((error) => {
       console.log(error)
     })
-  }
-
-  function noBlanks(value) {
-    return {
-      valid: value.replace(/\s+/, "").length > 0,
-      message: "cannot be blank"
-    }
   }
 
   return (
@@ -53,7 +44,7 @@ function CategoryModal(props) {
         <Modal
           show={props.show} onHide={props.onHide} animation={false}>
           <Modal.Header closeButton>
-            <Modal.Title>Add New Category</Modal.Title>
+            <Modal.Title>Add New subcategory</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="modalcontent">
@@ -62,18 +53,17 @@ function CategoryModal(props) {
                   <div className="form-group">
                     <input type="text"
                       name="name"
-                      placeholder="Category..."
-                      defaultValue={category.name}
-                      onChange={(e) => inputHandler(e,[noBlanks])} />
+                      placeholder="subcategory..."
+                      defaultValue={subcategory.name}
+                      onChange={inputHandler} />
                   </div>
 
                   <div className="form-group">
                     <input type="text"
                       name="description"
                       placeholder="Description..."
-                      defaultValue={category.description}
-                      onChange={(e) => inputHandler(e,[noBlanks])} 
-                      />
+                      defaultValue={subcategory.description}
+                      onChange={inputHandler} />
                   </div>
                 </div>
               </div>
@@ -88,4 +78,4 @@ function CategoryModal(props) {
   )
 }
 
-export default CategoryModal;
+export default SubCategoryModal;

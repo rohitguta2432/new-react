@@ -7,6 +7,7 @@ import Logout from '../Logout/Logout';
 import Protected from '../ProtectedRouter/ProtectedRouter'
 import AddProduct from '../AddProduct/AddProduct';
 import CategoryModal from '../Modal/CategoryModal'
+import Cart from '../Cart/Cart'
 function CommonRouter() {
     return (
         <>
@@ -15,6 +16,7 @@ function CommonRouter() {
                 <Protected path="/home" component={Home} />
                 <Protected path="/profile" component={Profile} />
                 <Route path="/addproduct" component={AddProduct} />
+                <Route path="/cart" component={Cart} />
                 <Route path="/Logout" component={Logout} />
                 
             </Switch>

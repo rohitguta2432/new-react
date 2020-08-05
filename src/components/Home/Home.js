@@ -5,7 +5,14 @@ import AllProduct from '../Products/AllProducts'
 function Home() {
     return (
         <>
-        <AllProduct/>
+        <section className="productsItems py-5">
+            <div className="container">
+                <div className="row">
+                    <AllProduct />
+                </div>
+            </div>
+        </section>
+        
         </>
     )
 }

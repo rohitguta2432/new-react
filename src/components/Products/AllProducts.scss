@@ -5,10 +5,26 @@
             height: 280px;
             width: 100%;
             border-bottom: 1px solid #edeaea;
+            overflow: hidden;
             img {
                 object-fit: cover;
                 height: 100%;
                 width: 100%;
+            }
+            .discount {
+                small {
+                    font-weight: 700;
+                }
+                position: absolute;
+                top: 14px;
+                left: -50px;
+                padding: 5px 45px;
+                color: #fff;
+                background: #e24b4b;
+                text-align: center;
+                width: 160px;
+                transform: rotate(-49deg);
+                line-height: 16px;
             }
         }
         .card-title {
@@ -37,6 +53,67 @@
                 line-height: 39px;
                 text-decoration: none;
             }
+            input[type="button"] {
+                -webkit-appearance: button;
+                cursor: pointer;
+              }
+              
+              input::-webkit-outer-spin-button,
+              input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+              }
+              
+              .input-group {
+                margin: 0 5px 0 0;
+                position: relative;
+                float: right;
+                width: auto;
+              }
+              
+              .input-group input[type='button'] {
+                background-color: #eeeeee;
+                width: 40px;
+                transition: all 300ms ease;
+                
+              }
+              
+              .input-group .button-minus,
+              .input-group .button-plus {
+                font-weight: bold;
+                height: 38px;
+                padding: 0;
+                width: 38px;
+                position: relative;
+                border: 1px solid #ccc;
+                &:focus {
+                  border: 1px solid #ccc;
+                  outline: 0;
+                }
+              }
+              
+              .input-group .quantity-field {
+                position: relative;
+                height: 38px;
+                left: -1px;
+                text-align: center;
+                width: 45px;
+                display: inline-block;
+                font-size: 13px;
+                margin: 0 0 5px;
+                resize: vertical;
+                outline: 0;
+                border: 1px solid #ccc;
+              }
+              
+              .button-plus {
+                left: -2px;
+              }
+              
+              input[type="number"] {
+                -moz-appearance: textfield;
+                -webkit-appearance: none;
+              }
+
         }
     }
 }

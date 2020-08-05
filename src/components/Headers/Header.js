@@ -4,7 +4,7 @@ import '../Headers/Header.scss'
 
 function Header() {
     return (
-        <>
+        <>div
             <header>
                 <div className="container">
                     <div className="row">
@@ -23,9 +23,6 @@ function Header() {
                                     <span className="navbar-toggler-icon"><i className="fa fa-bars" aria-hidden="true"></i></span>
                                     
                                 </button>
-                                <div className="username">
-                                <h5>Welcome <span>{sessionStorage.getItem('userName')}</span></h5>
-                                </div>
                                 <div className="navbar-collapse collapse" id="collapsingNavbar">
                                     <ul className="navbar-nav">
                                         <li className="nav-item active">

@@ -1,20 +1,19 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../AddProduct/AddProduct.scss';
 import Axios from 'axios';
 import {Link} from 'react-router-dom'
 import CategoryModal from '../Modal/CategoryModal';
-import { Modal } from 'react-bootstrap'
+import SubCategoryModal from '../Modal/SubCategoryModal';
+import ProductCategoryModal from '../Modal/ProductCategoryModal';
 
 function CreateProduct() {
-
     const token = sessionStorage.getItem('token')
     const [category, setCategory] = useState([]);
     const [subcategory, setSubcatgory] = useState([]);
     const [product, setProduct] = useState([]);
-    const [show,setShow] = useState(false)
     
 useEffect(() => {
-        Axios.get('http://13.234.77.33:1234/api/v1/category',{headers:{
+        Axios.get('http://localhost:1234/api/v1/category',{headers:{
             Authorization:`Bearer ${token}`
         }})
         .then((response)=>{
@@ -42,8 +41,34 @@ useEffect(() => {
             })
     }
 
-    const handleShow = () => setShow(true)
-    const handleClose = () => setShow(false)
+    // For Modal Open & Close
+    const [show, setShow] = useState(false);
+    const handleClose = () =>  {
+        setShow(false)
+    }
+    const handleShow = () => {
+        setShow(true)
+    }
+
+
+
+    const [showsub, setShowsub] = useState(false);
+    const _handleClose = () =>  {
+        setShowsub(false)
+    }
+    const _handleShow = () => {
+        setShowsub(true)
+    }
+
+
+    const [productShow, setProductShow] = useState(false);
+    const _closeModal = () =>  {
+        setProductShow(false)
+    }
+    const _showModal = () => {
+        setProductShow(true)
+    }
+    
 
   return (
             <>
@@ -55,7 +80,7 @@ useEffect(() => {
                             <div className="row profile_content p-4">
                                 <div className="col-md-4">
                                     <div className="form-group">
-                                        <label>Category</label>
+                                        <label>Category </label>
                                             <select name="category" onChange={categoryHandler}>
                                             <option>select category</option>
                                             {
@@ -63,7 +88,7 @@ useEffect(() => {
                                                         return (<option value={item.id} key={item.id}>{item.name}</option>)
                                                 })
                                             }</select>
-                                            <Link to="#" onClick={handleShow} className="newaddbtn"><small>+ Add New Category</small></Link>
+                                            <Link to="#" className="newaddbtn" onClick={handleShow}><small>+ Add New Category</small></Link>
                                         </div>
                                 </div>
                                 <div className="col-md-4">
@@ -76,7 +101,7 @@ useEffect(() => {
                                                         return (<option value={item.id} key={item.id}>{item.name}</option>)
                                                 })
                                             }</select>
-                                            <Link to="#" className="newaddbtn"><small>+ Add New subcategory</small></Link>
+                                            <Link to="#" className="newaddbtn" onClick={_handleShow}><small>+ Add New subcategory</small></Link>
                                     </div>
                                 </div>
                                 <div className="col-md-4">
@@ -89,7 +114,7 @@ useEffect(() => {
                                                         return (<option value={item.id} key={item.id}>{item.name}</option>)
                                                 })
                                             }</select>
-                                            <Link to="#" className="newaddbtn"><small>+ Add New product</small></Link>
+                                            <Link to="#" className="newaddbtn" onClick={_showModal}><small>+ Add New product</small></Link>
                                     </div>
                                 </div>
                                 <div className="col-md-12">
@@ -103,7 +128,9 @@ useEffect(() => {
                     </div>
                 </div>
             </section>
-            <CategoryModal show={show} onhide={handleClose}/>
+            <CategoryModal show={show} onHide={handleClose}/>
+            <SubCategoryModal show={showsub} onHide={_handleClose}/>
+            <ProductCategoryModal show={productShow} onHide={_closeModal}/>
             </>
     )
 }
