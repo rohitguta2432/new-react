@@ -73,6 +73,22 @@ header{
                     margin-right: 5px;
                 }
             }
+            .counter{
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background: #fff;
+                color: #e24b4b;
+                padding: 0;
+                position: absolute;
+                left: 24px;
+                top: 7px;
+                font-size: 14px;
+                text-align: center;
+                line-height: 14px;
+                font-weight: 700;
+            }
             .dropdown-menu {
                 right: 0;
                 padding: 0 0;
@@ -95,7 +111,9 @@ header{
                         background: #be3939;
                         color: #fff;
                     }
+                   
                 }
+                
             }
         }
         .dropdown-toggle {

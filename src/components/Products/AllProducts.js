@@ -11,6 +11,7 @@ function AllProduct() {
     const [quantityCount, setQuantityCount] = useState({});
     const [quanNo, setquanNo] =useState(0);
 
+    
     useEffect(() => {
         Axios.get(ENV.URL + '/category', {
             headers: {
@@ -63,7 +64,7 @@ function AllProduct() {
               { Authorization: `Bearer ${token}`}
             }).then((response)=>{
                 for(var i=0;i<=response.data.length;i++){
-                        const id = response.data[i].productId
+                        const id = response.data[i].product.id
                         const quan = response.data[i].quantity;
                         quantityCount[id]=quan
                         Axios.get(ENV.URL+'/product/'+id,{headers:{

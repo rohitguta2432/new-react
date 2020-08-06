@@ -1,8 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../Headers/Header.scss'
 
 function Header() {
+    const productCount = sessionStorage.getItem('productCount')
     return (
         <>div
             <header>
@@ -11,17 +12,17 @@ function Header() {
                         <div className="col-md-12">
                             <nav className="navbar fixed-top navbar-dark d-table w-100">
                                 <ul className="mainnav">
-                                    <li><Link to="#"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart</Link></li>
+                                    <li><Link to="/Cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> <span className="counter">{productCount}</span> Cart</Link></li>
                                     <li className="dropdown-toggle"><Link to="#"><i className="fas fa-user"></i> My Account</Link>
-                                    <div className="dropdown-menu">
-                                        <Link className="dropdown-item" to="/Profile"><i className="fas fa-user"></i> My Profile</Link>
-                                        <Link className="dropdown-item" to="/Logout"><i className="fa fa-lock" aria-hidden="true"></i> Logout</Link>
-                                    </div>
+                                        <div className="dropdown-menu">
+                                            <Link className="dropdown-item" to="/Profile"><i className="fas fa-user"></i> My Profile</Link>
+                                            <Link className="dropdown-item" to="/Logout"><i className="fa fa-lock" aria-hidden="true"></i> Logout</Link>
+                                        </div>
                                     </li>
                                 </ul>
-                                <button  className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+                                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
                                     <span className="navbar-toggler-icon"><i className="fa fa-bars" aria-hidden="true"></i></span>
-                                    
+
                                 </button>
                                 <div className="navbar-collapse collapse" id="collapsingNavbar">
                                     <ul className="navbar-nav">
